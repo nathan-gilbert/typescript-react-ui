@@ -25,11 +25,15 @@ function useInput(defaultValue: string) {
 }
 
 function Results(props: any) {
-  return <div>{props.results[0].id}</div>
+  return (
+    <div>
+      {props.results[0].id || ""}: {props.results[0].quote || ""}
+    </div>
+  )
 }
 
 function App() {
-  const [results, setResults] = useState()
+  const [results, setResults] = useState([{}])
   const inputProps = useInput("")
 
   const getResults = async () => {
