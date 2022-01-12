@@ -24,7 +24,12 @@ function useInput(defaultValue: string) {
   }
 }
 
+function Results(props: any) {
+  return <div>{props.results[0].id}</div>
+}
+
 function App() {
+  const [results, setResults] = useState()
   const inputProps = useInput("")
 
   const getResults = async () => {
@@ -33,6 +38,7 @@ function App() {
         "http://localhost:8080/api/quotes/random"
       )
       console.log(response)
+      return response.data
     } catch (error) {
       console.error(error)
     }
@@ -42,6 +48,7 @@ function App() {
     e.preventDefault() // It will hold the form submit
     console.log("state:", inputProps.value)
     const results = await getResults()
+    setResults(results)
     console.log(results)
   }
 
@@ -52,10 +59,10 @@ function App() {
         <div>
           <form>
             <StyledInput {...inputProps} placeholder="Type in here" />
-            <span>Value: {inputProps.value} </span>
             <button onClick={submitHandler}>Search</button>
           </form>
         </div>
+        <Results results={results}></Results>
       </header>
     </div>
   )
