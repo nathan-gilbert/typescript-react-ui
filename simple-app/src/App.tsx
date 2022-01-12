@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import logo from "./logo.svg"
+import axios from "axios"
 import "./App.css"
 
 // Styling a regular HTML input
@@ -26,9 +27,22 @@ function useInput(defaultValue: string) {
 function App() {
   const inputProps = useInput("")
 
-  const submitHandler = (e: any) => {
+  const getResults = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/api/quotes/random"
+      )
+      console.log(response)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const submitHandler = async (e: any) => {
     e.preventDefault() // It will hold the form submit
     console.log("state:", inputProps.value)
+    const results = await getResults()
+    console.log(results)
   }
 
   return (
