@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "ESNext",
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "noEmit": false,
+    "listEmittedFiles": false,
+    "diagnostics": false,
+    "extendedDiagnostics": false,
+    "pretty": true
+  },
+  "ts-node": {
+    // for Webpack, see: <https://webpack.js.org/configuration/configuration-languages/#typescript>
+    "compilerOptions": {
+      "module": "CommonJS",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

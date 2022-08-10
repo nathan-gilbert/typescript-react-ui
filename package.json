@@ -1,0 +1,75 @@
+{
+  "name": "ecorp.com",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "build:tailwind": "tailwindcss build -i ./src/tailwind.input.css -o ./src/tailwind.output.css",
+    "prebuild:dev": "yarn build:tailwind",
+    "build:dev": "webpack --config webpack.dev.ts",
+    "start:dev": "webpack serve --config webpack.dev.ts",
+    "prebuild:prd": "yarn build:tailwind --minify",
+    "build:prd": "webpack --config webpack.prod.ts",
+    "start:prd": "webpack serve --config webpack.prod.ts",
+    "check-types": "tsc --noEmit --strict",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.json"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^8.17.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^14.4.1",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.4",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/webpack": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "autoprefixer": "^10.4.8",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "postcss-loader": "^7.0.1",
+    "prettier": "^2.7.1",
+    "svg-url-loader": "^7.1.1",
+    "tailwindcss": "^3.1.8",
+    "ts-jest": "^28.0.7",
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3",
+    "webpack-merge": "^5.8.0"
+  }
+}
